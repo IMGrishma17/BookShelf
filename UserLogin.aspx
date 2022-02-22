@@ -7,10 +7,11 @@
     <br />
     <br />
     <br />
+
     <div class="container">
         
         <div class="row">
-            <%-- col can be divided upto 12 parts, md(medium device) to keep proper format for shrink or mob devices, ms-auto bs class for center align  --%>
+            <%-- col can be divided upto 12 parts, md to keep proper format for medium or greater than med devices: laptop and all for smaller device will take whole grid space , ms-auto bs class for center align  --%>
             <div class="col-md-6 mx-auto"> 
                 <%-- card is an inbuilt bootstrap class which gives proper formatting --%>
                 <div class="card">

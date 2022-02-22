@@ -3,7 +3,8 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contentPlaceHolder1" runat="server">
-
+    <br />
+    <br />
 
     <div class="container">
         
@@ -17,7 +18,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <img width="150px" src="images/admin%20login.jpg" />
+                                    <img width="180px" src="images/admin%20login.jpg" />
                                 </center>
                             </div>
                         </div>

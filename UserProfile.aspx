@@ -1,10 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="SignUp.aspx.cs" Inherits="BookShelf.SignUp" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="UserProfile.aspx.cs" Inherits="BookShelf.UserProfile" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contentPlaceHolder1" runat="server">
-    
     <br />
     <br />
 
@@ -28,7 +27,9 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <h3>User Sign Up</h3>
+                                    <h3>Your Profile</h3>
+                                    <span>Account Status - </span>
+                                    <asp:Label class="badge badge-pill badge-info" ID="Label1" runat="server" Text="Status"></asp:Label>
                                 </center>
                             </div>
                         </div>
@@ -99,17 +100,24 @@
                         <br />
 
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <label>User ID</label>
                                 <div class="form-group">
-                                    <asp:TextBox Class="form-control" ID="TextBox6" runat="server" placeholder="User ID" ></asp:TextBox>
+                                    <asp:TextBox Class="form-control" ID="TextBox6" runat="server" placeholder="User ID" ReadOnly="True"></asp:TextBox>
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <label>Password</label>
+                            <div class="col-md-4">
+                                <label>Old Password</label>
                                 <div class="form-group">
-                                    <asp:TextBox Class="form-control" ID="TextBox7" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
+                                    <asp:TextBox Class="form-control" ID="TextBox7" runat="server" placeholder="Password" TextMode="Password" ReadOnly="True"></asp:TextBox>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label>New Password</label>
+                                <div class="form-group">
+                                    <asp:TextBox Class="form-control" ID="TextBox8" runat="server" placeholder="Password" TextMode="Password" ></asp:TextBox>
                                 </div>
                             </div>
 
@@ -118,10 +126,11 @@
 
                         <div class="row">
                             <div class="col">
+                               <center>
                                <div class="form-group">
-                                    <asp:Button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" Text="Sign Up" />
+                                    <asp:Button class="btn btn-primary btn-lg" ID="Button1" runat="server" Text="Update" />
                                 </div>
-
+                                </center>
                             </div>
                         </div>
 
