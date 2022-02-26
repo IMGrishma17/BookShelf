@@ -68,6 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminLogin.aspx" />
+    <Content Include="BooksManage.aspx" />
+    <Content Include="BooksUpload.aspx" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
     <Content Include="bootstrap\js\bootstrap.min.js" />
     <Content Include="bootstrap\js\jquery-3.3.1.slim.min.js" />
@@ -1724,12 +1726,12 @@
     <Content Include="fontawesome\webfonts\fa-solid-900.svg" />
     <Content Include="home.aspx" />
     <Content Include="images\admin login.jpg" />
+    <Content Include="images\background books.png" />
+    <Content Include="images\book details.jpg" />
     <Content Include="images\bs.png" />
-    <Content Include="images\eBooks.jpg" />
     <Content Include="images\login.png" />
     <Content Include="images\online bookstore.jpg" />
     <Content Include="images\search book.png" />
-    <Content Include="images\sign up.png" />
     <Content Include="images\virtual connect.jpg" />
     <Content Include="MemberManage.aspx" />
     <Content Include="SignUp.aspx" />
@@ -1745,6 +1747,20 @@
     </Compile>
     <Compile Include="AdminLogin.aspx.designer.cs">
       <DependentUpon>AdminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BooksManage.aspx.cs">
+      <DependentUpon>BooksManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BooksManage.aspx.designer.cs">
+      <DependentUpon>BooksManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BooksUpload.aspx.cs">
+      <DependentUpon>BooksUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BooksUpload.aspx.designer.cs">
+      <DependentUpon>BooksUpload.aspx</DependentUpon>
     </Compile>
     <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>

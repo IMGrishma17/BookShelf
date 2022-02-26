@@ -8,19 +8,9 @@
         color: #ffd800;
     }
 
-#footer1 {
-    
-    background: #35b0ab;
-}
-
-#footer2 {
-   
-    background: #226b80;
-}
 
 .homeInfo {
     
-    opacity: 0.6;
     height: auto;
     font-size: 80px;
     margin: 100px 20% 50px 20%;

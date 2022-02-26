@@ -8,6 +8,13 @@
     </div>
 
     <section>
+        <center>
+        <img src="images/background%20books.png" height="400px" width="98%"/>
+        </center>
+    </section>
+    <br />
+    <br />
+    <section>
 
         <div class="container">
             <div class="row">
@@ -51,39 +58,11 @@
 
     </section>
 
-    <section>
-        <center>
-        <img src="images/eBooks.jpg" class="img-fluid" />
-        </center>
-    </section>
+    
     <br />
     <br />
 
 
-    <section>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <center>
-                    <h3>Get Started!</h3>
-                    <p>Initiate the process of revitalizing your old books or acquiring books 
-                        that interest you at a reasonable price. </p>
-                    <h5>Signup on our site to begin browsing and uploading books!</h5>
-                    </center>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <center>
-                    <img src="images/sign%20up.png" width="150px"/>
-                    <h4>Sign Up</h4>
-                    </center>
-                </div>
-             </div>
-       </div>
-
-    </section>
+    
 
 </asp:Content>
