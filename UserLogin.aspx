@@ -43,7 +43,7 @@
                             <div class="col">
                                 <%-- form-group is a bs class which makes the div form enabled with bs styling --%>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="Member ID"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="Member ID" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
 
                                 </div>
 
@@ -54,7 +54,7 @@
 
                                 <%-- btn-success is for color, block for whole legth block, lg for large size --%>
                                 <div class="form-group">
-                                    <asp:Button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" Text="Log In" />
+                                    <asp:Button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" Text="Log In" OnClick="Button1_Click" />
                                 </div>
 
                                 <div class="form-group">
