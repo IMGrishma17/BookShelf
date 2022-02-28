@@ -37,10 +37,10 @@ namespace BookShelf
                     {
                         Response.Write("<script>alert('Login Successful');</script>");
 
-                        Session["username"] = dr.GetValue(5).ToString();
-                        Session["fullname"] = dr.GetValue(0).ToString();
-                        Session["role"] = "user";
-                        Session["status"] = dr.GetValue(7).ToString();
+                        //Session["username"] = dr.GetValue(5).ToString();
+                        //Session["fullname"] = dr.GetValue(0).ToString();
+                        //Session["role"] = "user";
+                        //Session["status"] = dr.GetValue(7).ToString();
                     }
                     Response.Redirect("home.aspx");
                 }
@@ -58,7 +58,6 @@ namespace BookShelf
             clear();
             //Response.Write("<script>alert('Login');</script>");
         }
-
 
         void clear()
         {

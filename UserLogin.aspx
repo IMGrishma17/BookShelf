@@ -43,13 +43,13 @@
                             <div class="col">
                                 <%-- form-group is a bs class which makes the div form enabled with bs styling --%>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="Member ID" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
-                                   
+                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="User ID" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorUsername" runat="server" ErrorMessage="* Username is required *" ControlToValidate="TextBox1" CssClass="text-danger"></asp:RequiredFieldValidator>
                                 </div>
 
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
-
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorPassword" runat="server" ErrorMessage="* Password is required *" ControlToValidate="TextBox2" CssClass="text-danger"></asp:RequiredFieldValidator>
                                 </div>
 
                                 <%-- btn-success is for color, block for whole legth block, lg for large size --%>

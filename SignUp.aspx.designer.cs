@@ -24,6 +24,15 @@ namespace BookShelf
         protected global::System.Web.UI.WebControls.TextBox FnameTxt;
 
         /// <summary>
+        /// RequiredFieldValidatorName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorName;
+
+        /// <summary>
         /// DobTxt control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace BookShelf
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox DobTxt;
+
+        /// <summary>
+        /// RequiredFieldValidatorDob control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorDob;
 
         /// <summary>
         /// ConTxt control.
@@ -42,6 +60,15 @@ namespace BookShelf
         protected global::System.Web.UI.WebControls.TextBox ConTxt;
 
         /// <summary>
+        /// RequiredFieldValidatorContact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorContact;
+
+        /// <summary>
         /// EmailTxt control.
         /// </summary>
         /// <remarks>
@@ -49,6 +76,15 @@ namespace BookShelf
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox EmailTxt;
+
+        /// <summary>
+        /// RequiredFieldValidatorEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorEmail;
 
         /// <summary>
         /// AddTxt control.
@@ -60,6 +96,15 @@ namespace BookShelf
         protected global::System.Web.UI.WebControls.TextBox AddTxt;
 
         /// <summary>
+        /// RequiredFieldValidatorAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorAddress;
+
+        /// <summary>
         /// UserTxt control.
         /// </summary>
         /// <remarks>
@@ -69,6 +114,15 @@ namespace BookShelf
         protected global::System.Web.UI.WebControls.TextBox UserTxt;
 
         /// <summary>
+        /// RequiredFieldValidatorUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorUsername;
+
+        /// <summary>
         /// PasswordTxt control.
         /// </summary>
         /// <remarks>
@@ -76,6 +130,15 @@ namespace BookShelf
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PasswordTxt;
+
+        /// <summary>
+        /// RequiredFieldValidatorPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorPassword;
 
         /// <summary>
         /// SignUpBtn control.

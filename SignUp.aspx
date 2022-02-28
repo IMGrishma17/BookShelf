@@ -45,6 +45,7 @@
                                 <label>Full Name</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="FnameTxt" runat="server" placeholder="Full Name"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" runat="server" ErrorMessage="* Enter your name *" ControlToValidate="FnameTxt" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
 
@@ -52,6 +53,7 @@
                                 <label>Date Of Birth</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="DobTxt" runat="server" TextMode="Date"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorDob" runat="server" ErrorMessage="* Enter your DOB *" ControlToValidate="DobTxt" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
 
@@ -63,6 +65,7 @@
                                 <label>Contact Number</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="ConTxt" runat="server" placeholder="Contact Number" TextMode="Number"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorContact" runat="server" ErrorMessage="* Enter your Contact Number *" ControlToValidate="ConTxt" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
 
@@ -70,6 +73,7 @@
                                 <label>Email ID</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="EmailTxt" runat="server" placeholder="Email ID" TextMode="Email"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorEmail" runat="server" ErrorMessage="* Enter your Email *" ControlToValidate="EmailTxt" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
 
@@ -81,6 +85,7 @@
                                 <label>Full Address</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="AddTxt" runat="server" placeholder="Full Address" TextMode="MultiLine" Rows="2"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorAddress" runat="server" ErrorMessage="* Enter your Address *" ControlToValidate="AddTxt" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
 
@@ -100,9 +105,10 @@
 
                         <div class="row">
                             <div class="col-md-6">
-                                <label>User ID</label>
+                                <label>Username</label>
                                 <div class="form-group">
-                                    <asp:TextBox Class="form-control" ID="UserTxt" runat="server" placeholder="User ID" ></asp:TextBox>
+                                    <asp:TextBox Class="form-control" ID="UserTxt" runat="server" placeholder="Username" ></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorUsername" runat="server" ErrorMessage="* Enter a Username *" ControlToValidate="UserTxt" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
 
@@ -110,6 +116,7 @@
                                 <label>Password</label>
                                 <div class="form-group">
                                     <asp:TextBox Class="form-control" ID="PasswordTxt" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorPassword" runat="server" ErrorMessage="* Enter a Password *" ControlToValidate="PasswordTxt" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
 

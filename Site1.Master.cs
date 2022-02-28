@@ -13,19 +13,20 @@ namespace BookShelf
         {
             //try
             //{
-            //    if (Session["role"].Equals(""))
-            //    {
-            //        LinkButton2.Visible = true; //user login link button
-            //        LinkButton3.Visible = true; //Sign up link button
+                //        if (Session["role"].Equals(""))
+                //        {
+                //            LinkButton2.Visible = true; //user login link button
+                //            LinkButton3.Visible = true; //Sign up link button
 
-            //        LinkButton4.Visible = false; //logout link button
-            //        LinkButton5.Visible = false; //hello user link button
+                //            LinkButton4.Visible = false; //logout link button
+                //            LinkButton5.Visible = false; //hello user link button
 
-            //        LinkButton6.Visible = true; //admin login link button
-            //        LinkButton7.Visible = false; //manage member link button
-            //        LinkButton8.Visible = false; //book manage link button
-            //    }
-            //    else if (Session["role"].Equals("user"))
+                //            LinkButton6.Visible = true; //admin login link button
+                //            LinkButton7.Visible = false; //manage member link button
+                //            LinkButton8.Visible = false; //book manage link button
+                //        }
+                //        else
+            //    if (Session["role"].Equals("user"))
             //    {
             //        LinkButton2.Visible = false; //user login link button
             //        LinkButton3.Visible = false; //Sign up link button
