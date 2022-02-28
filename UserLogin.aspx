@@ -44,7 +44,7 @@
                                 <%-- form-group is a bs class which makes the div form enabled with bs styling --%>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="Member ID" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
-
+                                   
                                 </div>
 
                                 <div class="form-group">

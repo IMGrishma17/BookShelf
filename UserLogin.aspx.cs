@@ -55,7 +55,15 @@ namespace BookShelf
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
 
+            clear();
             //Response.Write("<script>alert('Login');</script>");
+        }
+
+
+        void clear()
+        {
+            TextBox1.Text = "";
+            TextBox2.Text = "";
         }
 
         protected void Button1_Click1(object sender, EventArgs e)

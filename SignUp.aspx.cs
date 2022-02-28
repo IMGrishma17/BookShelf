@@ -30,8 +30,8 @@ namespace BookShelf
             {
                 UserSignup();
             }
-            
 
+            clear();
         }
 
         //user defined method
@@ -108,6 +108,20 @@ namespace BookShelf
                 //dynamic exception caught is displayed
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
+
+            clear();
+        }
+
+        
+        void clear()
+        {
+            FnameTxt.Text = "";
+            DobTxt.Text = "";
+            ConTxt.Text = "";
+            EmailTxt.Text = "";
+            AddTxt.Text = "";
+            UserTxt.Text = "";
+            PasswordTxt.Text = "";
         }
 
     }

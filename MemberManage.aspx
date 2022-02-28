@@ -1,5 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="MemberManage.aspx.cs" Inherits="BookShelf.MemberManage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+          $(".table").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
+      });
+    </script>
+
 </asp:Content>
 
 
@@ -9,7 +16,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-6">
 
                 <div class="card">
                     <div class="card-body">
@@ -43,7 +50,7 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <asp:TextBox CssClass="form-control mr-1" ID="TextBox1" runat="server" placeholder="ID"></asp:TextBox>
-                                        <asp:LinkButton class="btn btn-primary" ID="LinkButton4" runat="server">GO</asp:LinkButton>                   
+                                        <asp:LinkButton class="btn btn-primary" ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">GO</asp:LinkButton>                   
                                     </div>
                                 </div>
                             </div>
@@ -61,9 +68,9 @@
                                     <div class="input-group">
                                         <asp:TextBox CssClass="form-control mr-1" ID="TextBox3" runat="server" placeholder="Status" ReadOnly="True"></asp:TextBox>
 
-                                        <asp:LinkButton class="btn btn-success mr-1" ID="LinkButton1" runat="server"> <i class="fas fa-check-circle"></i> </asp:LinkButton>
-                                        <asp:LinkButton class="btn btn-warning mr-1" ID="LinkButton2" runat="server"> <i class="far fa-pause-circle"></i> </asp:LinkButton>
-                                        <asp:LinkButton class="btn btn-danger mr-1" ID="LinkButton3" runat="server"> <i class="fas fa-times-circle"></i> </asp:LinkButton>
+                                        <asp:LinkButton class="btn btn-success mr-1" ID="LinkButton1" runat="server" OnClick="LinkButton1_Click"> <i class="fas fa-check-circle"></i> </asp:LinkButton>
+                                        <asp:LinkButton class="btn btn-warning mr-1" ID="LinkButton2" runat="server" OnClick="LinkButton2_Click"> <i class="far fa-pause-circle"></i> </asp:LinkButton>
+                                        <asp:LinkButton class="btn btn-danger mr-1" ID="LinkButton3" runat="server" OnClick="LinkButton3_Click"> <i class="fas fa-times-circle"></i> </asp:LinkButton>
                                         
                                     </div>
                                 </div>
@@ -107,7 +114,7 @@
 
                         <div class="row">
                             <div class="col-8 mx-auto">
-                                <asp:Button class="btn btn-lg btn-block btn-danger" ID="Button1" runat="server" Text="Delete User Permanently" />
+                                <asp:Button class="btn btn-lg btn-block btn-danger" ID="Button1" runat="server" Text="Delete User Permanently" OnClick="Button1_Click" />
                             </div>
                         </div>
 
@@ -117,7 +124,7 @@
                 <br /> <br />
             </div>
 
-            <div class="col-md-7">
+            <div class="col-md-6">
 
                 <div class="card">
                     <div class="card-body">
@@ -137,8 +144,18 @@
                         </div>
 
                         <div class="row">
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BookShelfDBConnectionString %>" SelectCommand="SELECT * FROM [Users_Info]"></asp:SqlDataSource>
                             <div class="col">
-                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server"></asp:GridView>
+                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="User_ID" DataSourceID="SqlDataSource1">
+                                    <Columns>
+                                        <asp:BoundField DataField="User_ID" HeaderText="User ID" ReadOnly="True" SortExpression="User_ID" />
+                                        <asp:BoundField DataField="Account_Status" HeaderText="Account Status" SortExpression="Account_Status" />
+                                        <asp:BoundField DataField="Full_Name" HeaderText="Full Name" SortExpression="Full_Name" />
+                                        <asp:BoundField DataField="Contact_No" HeaderText="Contact" SortExpression="Contact_No" />
+                                        <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                                        <asp:BoundField DataField="Full_Address" HeaderText="Address" SortExpression="Full_Address" />
+                                    </Columns>
+                                </asp:GridView>
                             </div>
                         </div>
 

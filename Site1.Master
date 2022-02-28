@@ -21,7 +21,8 @@
     <script src="bootstrap/js/popper.min.js"></script>
     <%-- bootstrap js --%>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-
+    <%-- datatables js --%>
+    <script src="datatables/js/jquery.dataTables.min.js"></script>
     
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -97,7 +98,7 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                         <p>
-                            <asp:LinkButton class="footerlinks" href="AdminLogin.aspx" ID="LinkButton6" runat="server">Admin Login</asp:LinkButton>
+                            <asp:LinkButton class="footerlinks" href="AdminLogin.aspx" ID="LinkButton6" runat="server" OnClick="LinkButton6_Click">Admin Login</asp:LinkButton>
                             &nbsp;
                             <asp:LinkButton class="footerlinks" href="BooksManage.aspx" ID="LinkButton7" runat="server">Book Management</asp:LinkButton>
                             &nbsp;
