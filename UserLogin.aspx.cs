@@ -35,14 +35,15 @@ namespace BookShelf
                 {
                     while (dr.Read())
                     {
+                        Session["username"] = dr.GetValue(5).ToString();
+                        Session["fullname"] = dr.GetValue(0).ToString();
+                        Session["role"] = "user";
+                        Session["status"] = dr.GetValue(7).ToString();
+                        Response.Redirect("home.aspx");
                         Response.Write("<script>alert('Login Successful');</script>");
 
-                        //Session["username"] = dr.GetValue(5).ToString();
-                        //Session["fullname"] = dr.GetValue(0).ToString();
-                        //Session["role"] = "user";
-                        //Session["status"] = dr.GetValue(7).ToString();
                     }
-                    Response.Redirect("home.aspx");
+
                 }
                 else
                 {
