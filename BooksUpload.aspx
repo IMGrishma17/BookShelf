@@ -1,5 +1,25 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="BooksUpload.aspx.cs" Inherits="BookShelf.BooksUpload" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+    <script type="text/javascript">
+       //$(document).ready(function () {
+       //    $(".table").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
+       //});
+
+       function readURL(input) {  
+           if (input.files && input.files[0]) {
+               var reader = new FileReader();
+
+               reader.onload = function (e) {
+                   $('#imgview').attr('src', e.target.result);
+               };
+
+               reader.readAsDataURL(input.files[0]);
+           }
+       }
+
+    </script>
+
 </asp:Content>
 
 
@@ -26,7 +46,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <img width="160px" src="images/book%20details.jpg" />
+                                    <img id="imgview" height="150px" width="160px" src="BooksImg/book%20details.jpg" />
                                 </center>
                             </div>
                         </div>
@@ -34,7 +54,7 @@
 
                         <div class="row">
                             <div class="col">
-                                <asp:FileUpload class="form-control" ID="FileUpload1" runat="server" />  
+                                <asp:FileUpload onchange="readURL(this);" class="form-control" ID="FileUpload1" runat="server" />  
                             </div>
                         </div>
                         <br />
@@ -45,7 +65,7 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <asp:TextBox CssClass="form-control mr-1" ID="TextBox1" runat="server" placeholder="ID"></asp:TextBox>
-                                        <asp:LinkButton class="btn btn-primary" ID="LinkButton4" runat="server">GO</asp:LinkButton>                   
+                                        <asp:LinkButton class="btn btn-primary" ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">GO</asp:LinkButton>                   
                                     </div>
                                 </div>
                             </div>
@@ -54,6 +74,7 @@
                                 <label>Book Name</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Book Name" ></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" runat="server" ErrorMessage="* Enter the book name *" ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
 
@@ -90,7 +111,18 @@
                             <div class="col-md-8">
                                 <label>Category </label>
                                 <div class="form-group">
-                                    <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
+                                    <asp:ListBox CssClass="form-control" ID="ListBox1" runat="server" Rows="4">
+                                        <asp:ListItem Text="Fantasy" Value="Fantasy" />
+                                        <asp:ListItem Text="Science-Fiction" Value="Si-Fiction" />
+                                        <asp:ListItem Text="Romance" Value="Romance" />
+                                        <asp:ListItem Text="Crime" Value="Crime" />
+                                        <asp:ListItem Text="Drama" Value="Drama" />
+                                        <asp:ListItem Text="Poetry" Value="Poetry" />
+                                        <asp:ListItem Text="MBBS" Value="MBBS" />
+                                        <asp:ListItem Text="Engineering" Value="Engineering" />
+                                        <asp:ListItem Text="IT" Value="IT" />
+                                        <asp:ListItem Text="Law" Value="Law" />
+                                    </asp:ListBox>
                                 </div>
                             </div>
                         </div>
@@ -133,15 +165,15 @@
 
                         <div class="row">
                             <div class="col-md-4">
-                                <asp:Button class="btn btn-lg btn-block btn-success" ID="Button1" runat="server" Text="Upload" />
+                                <asp:Button class="btn btn-lg btn-block btn-success" ID="Button1" runat="server" Text="Upload" OnClick="Button1_Click" />
                             </div>
 
                             <div class="col-md-4">
-                                <asp:Button class="btn btn-lg btn-block btn-warning" ID="Button3" runat="server" Text="Update" />
+                                <asp:Button class="btn btn-lg btn-block btn-warning" ID="Button3" runat="server" Text="Update" OnClick="Button3_Click" />
                             </div>
 
                             <div class="col-md-4">
-                                <asp:Button class="btn btn-lg btn-block btn-danger" ID="Button2" runat="server" Text="Delete" />
+                                <asp:Button class="btn btn-lg btn-block btn-danger" ID="Button2" runat="server" Text="Delete" OnClick="Button2_Click" />
                             </div>
                         </div>
 

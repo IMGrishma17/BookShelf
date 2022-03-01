@@ -51,6 +51,15 @@ namespace BookShelf
         protected global::System.Web.UI.WebControls.TextBox TextBox2;
 
         /// <summary>
+        /// RequiredFieldValidatorName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorName;
+
+        /// <summary>
         /// DropDownList1 control.
         /// </summary>
         /// <remarks>
