@@ -16,7 +16,7 @@ namespace BookShelf
         string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            userBookData();
         }
 
         //upload button click
@@ -40,10 +40,76 @@ namespace BookShelf
         //go button click
         protected void LinkButton4_Click(object sender, EventArgs e)
         {
-
+            getBookByID();
         }
 
         //user defined function
+
+        void getBookByID()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Books WHERE Book_Id='"+TextBox1.Text.Trim()+"'", con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        TextBox2.Text = dr.GetValue(1).ToString();
+                        DropDownList1.SelectedValue = dr.GetValue(3).ToString().Trim();
+                        TextBox5.Text = dr.GetValue(4).ToString();
+                        //ListBox1.Items. = dr.GetValue(2).ToString().Trim();
+                    }
+
+                }
+                    
+                    
+                
+                else
+                {
+                    Response.Write("<script>alert('Invalid Book ID')</script>");
+                }
+
+                
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "')</script>");
+            }
+        }
+
+        void userBookData()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                
+                SqlCommand cmd = new SqlCommand("SELECT Book_Id,Book_Name,Author_Name,Listing_Price,Book_Description FROM Books WHERE User_Id='"+Session["username"]+"';", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "')</script>");
+            }
+        }
+
         void addNewBook()
         {
             try
@@ -73,7 +139,7 @@ namespace BookShelf
                 cmd.Parameters.AddWithValue("@Book_Description", TextBox3.Text.Trim());
                 cmd.Parameters.AddWithValue("@Contact_Info", TextBox4.Text.Trim());
 
-                cmd.Parameters.AddWithValue("@User_Id", "gm");
+                cmd.Parameters.AddWithValue("@User_Id", Session["username"]);
 
                 cmd.Parameters.AddWithValue("@Book_Img_Link", filepath);
 
@@ -81,6 +147,7 @@ namespace BookShelf
                 cmd.ExecuteNonQuery();
                 con.Close();
                 Response.Write("<script>alert('Book added successfully!')</script>");
+                userBookData();
             }
 
             catch(Exception ex)

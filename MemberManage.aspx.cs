@@ -163,7 +163,7 @@ namespace BookShelf
                     }
                     else
                     {
-                        Response.Write("<script>alert('Invalid credentials');</script>");
+                        Response.Write("<script>alert('Invalid User ID');</script>");
                     }
                 }
 

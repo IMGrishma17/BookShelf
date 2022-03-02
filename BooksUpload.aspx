@@ -20,7 +20,7 @@
 
     </script>
 
-    String SessionUser = Session["username"].ToString();
+   
 
 </asp:Content>
 
@@ -73,14 +73,20 @@
                             </div>
 
                             <div class="col-md-9">
-                                <label>Book Name</label>
-                                <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Book Name" ></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" runat="server" ErrorMessage="* Enter the book name *" ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
-                                </div>
+                                <br />
+                                <label style="color: #FF0000; font-style: italic; font-size: smaller">Enter Book ID to search for a book</label>
                             </div>
 
 
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <label>Book Name</label>
+                                <div class="form-group">
+                                    <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Book Name" ></asp:TextBox>
+                                    </div>
+                            </div>
                         </div>
 
                         <div class="row">
@@ -115,6 +121,7 @@
                                 <div class="form-group">
                                     <asp:ListBox CssClass="form-control" ID="ListBox1" runat="server" Rows="4">
                                         <asp:ListItem Text="Fantasy" Value="Fantasy" />
+                                        <asp:ListItem Text="Fiction" Value="Fiction" />
                                         <asp:ListItem Text="Science-Fiction" Value="Si-Fiction" />
                                         <asp:ListItem Text="Romance" Value="Romance" />
                                         <asp:ListItem Text="Crime" Value="Crime" />
