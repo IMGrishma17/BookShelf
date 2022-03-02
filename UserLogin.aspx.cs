@@ -29,26 +29,62 @@ namespace BookShelf
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Users_Info WHERE User_ID='"+TextBox1.Text.Trim()+ "' AND Password='"+TextBox2.Text.Trim()+"'", con);
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.HasRows)
+
+                if ((TextBox1.Text.Trim() == "admin") && (TextBox2.Text.Trim() == "admin"))
                 {
-                    while (dr.Read())
-                    {
-                        Session["username"] = dr.GetValue(5).ToString();
-                        Session["fullname"] = dr.GetValue(0).ToString();
-                        Session["role"] = "user";
-                        Session["status"] = dr.GetValue(7).ToString();
-                        Response.Redirect("home.aspx");
-                        Response.Write("<script>alert('Login Successful');</script>");
-
-                    }
-
+                    Session["role"] = "admin";
+                    Response.Redirect("home.aspx");
+                    Response.Write("<script>alert('Login Successful');</script>");
                 }
+
                 else
                 {
-                    Response.Write("<script>alert('Invalid credentials');</script>");
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM Users_Info WHERE User_ID='" + TextBox1.Text.Trim() + "' AND Password='" + TextBox2.Text.Trim() + "'", con);
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+
+
+                            Session["username"] = dr.GetValue(5).ToString();
+                            Session["fullname"] = dr.GetValue(0).ToString();
+                            Session["role"] = "user";
+                            Session["status"] = dr.GetValue(7).ToString();
+                            Response.Redirect("home.aspx");
+                            Response.Write("<script>alert('Login Successful');</script>");
+
+                        }
+
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Invalid credentials');</script>");
+                    }
                 }
+
+                //SqlCommand cmd = new SqlCommand("SELECT * FROM Users_Info WHERE User_ID='"+TextBox1.Text.Trim()+ "' AND Password='"+TextBox2.Text.Trim()+"'", con);
+                //SqlDataReader dr = cmd.ExecuteReader();
+                //if (dr.HasRows)
+                //{
+                //    while (dr.Read())
+                //    {
+
+
+                //        Session["username"] = dr.GetValue(5).ToString();
+                //        Session["fullname"] = dr.GetValue(0).ToString();
+                //        Session["role"] = "user";
+                //        Session["status"] = dr.GetValue(7).ToString();
+                //        Response.Redirect("home.aspx");
+                //        Response.Write("<script>alert('Login Successful');</script>");
+
+                //    }
+
+                //}
+                //else
+                //{
+                //    Response.Write("<script>alert('Invalid credentials');</script>");
+                //}
             }
 
             catch(Exception ex)

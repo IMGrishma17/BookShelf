@@ -22,7 +22,7 @@ namespace BookShelf
                     LinkButton4.Visible = false; //logout link button
                     LinkButton5.Visible = false; //hello user link button
 
-                    LinkButton6.Visible = true; //admin login link button
+                    LinkButton6.Visible = false; //admin login link button
                     LinkButton7.Visible = false; //manage member link button
                     LinkButton8.Visible = false; //book manage link button
                 }
@@ -74,7 +74,7 @@ namespace BookShelf
         {
             Session["username"] = "";
             Session["fullname"] = "";
-            Session["role"] = "";
+            Session["role"] = null;
             Session["status"] = "";
 
             LinkButton2.Visible = true; //user login link button

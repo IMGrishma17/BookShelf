@@ -59,7 +59,7 @@
                             </li>
 
                             <li class="nav-item active">
-                                <asp:LinkButton class="nav-link" ID="LinkButton1" runat="server">View Books</asp:LinkButton>
+                                <asp:LinkButton class="nav-link" href="ViewBooks.aspx" ID="LinkButton1" runat="server">View Books</asp:LinkButton>
                             </li>
                         
                             <li class="nav-item active">
@@ -94,15 +94,15 @@
         <!-- Footer -->
         <%-- container fluid is a bootstrap class used for creating grid system for footer --%>
         <footer>
-            <div id="footer1" class="container-fluid" style="background-color:#85929E">
+            <div id="footer1" class="container-fluid" style="background-color:#EAF2F8">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                         <p>
-                            <asp:LinkButton class="footerlinks" href="AdminLogin.aspx" ID="LinkButton6" runat="server" OnClick="LinkButton6_Click">Admin Login</asp:LinkButton>
+                            <asp:LinkButton class="footerlinks" href="AdminLogin.aspx" ID="LinkButton6" runat="server" OnClick="LinkButton6_Click" ForeColor="Black" Font-Bold="True" BorderColor="#CC0000">Admin Login</asp:LinkButton>
                             &nbsp;
-                            <asp:LinkButton class="footerlinks" href="BooksManage.aspx" ID="LinkButton7" runat="server">Book Management</asp:LinkButton>
+                            <asp:LinkButton class="footerlinks" href="BooksManage.aspx" ID="LinkButton7" runat="server" ForeColor="#CC0000" Font-Bold="True" >Book Management</asp:LinkButton>
                             &nbsp;
-                             <asp:LinkButton class="footerlinks" href="MemberManage.aspx" ID="LinkButton8" runat="server">Member Management</asp:LinkButton>
+                             <asp:LinkButton class="footerlinks" href="MemberManage.aspx" ID="LinkButton8" runat="server" ForeColor="#CC0000" Font-Bold="True" >Member Management</asp:LinkButton>
                         </p>
 
                     </div>
