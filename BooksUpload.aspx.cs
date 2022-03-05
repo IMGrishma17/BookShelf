@@ -14,6 +14,9 @@ namespace BookShelf
     public partial class BooksUpload : System.Web.UI.Page
     {
         string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
+
+        static string global_filepath;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             userBookData();
@@ -28,7 +31,7 @@ namespace BookShelf
         //update button click
         protected void Button3_Click(object sender, EventArgs e)
         {
-
+            updateBook();
         }
 
         //delete button click
@@ -44,6 +47,64 @@ namespace BookShelf
         }
 
         //user defined function
+
+        void updateBook()
+        {
+            if (TextBox1.Text.Trim().Equals(""))
+            {
+                Response.Write("<script>alert('Book ID cannot be blank');</script>");
+            }
+
+            else
+            {
+                try
+                {
+                    string filepath = "~/BooksImg/book%20details.jpg";
+                    string filename = Path.GetFileName(FileUpload1.PostedFile.FileName);
+                    if (filename == "" || filename == null)
+                    {
+                        filepath = global_filepath;
+                    }
+                    else
+                    {
+                        FileUpload1.SaveAs(Server.MapPath("BooksImg/" + filename));
+                        filepath = "~/BooksImg/" + filename;
+                    }
+
+
+                    SqlConnection con = new SqlConnection(strcon);
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+
+                    SqlCommand cmd = new SqlCommand("UPDATE Books SET Book_Name=@book_name,Category=@category,Language=@language,Author_Name=@author_name,Listing_Price=@listing_price,Listing_Address=@listing_address,Book_Description=@book_description,Contact_Info=@contact_info,Book_Img_Link=@book_img_link WHERE Book_Id='" + TextBox1.Text.Trim() + "'", con);
+
+                    cmd.Parameters.AddWithValue("@book_name", TextBox2.Text.Trim());
+                    cmd.Parameters.AddWithValue("@category", ListBox1.SelectedItem.Value);
+                    cmd.Parameters.AddWithValue("@author_name", TextBox5.Text.Trim());
+
+                    cmd.Parameters.AddWithValue("@language", DropDownList1.SelectedItem.Value);
+                    cmd.Parameters.AddWithValue("@listing_price", TextBox6.Text.Trim());
+                    cmd.Parameters.AddWithValue("@listing_address", TextBox7.Text.Trim());
+                    cmd.Parameters.AddWithValue("@book_description", TextBox3.Text.Trim());
+                    cmd.Parameters.AddWithValue("@contact_info", TextBox4.Text.Trim());
+
+                    cmd.Parameters.AddWithValue("@book_img_link", filepath);
+
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    GridView1.DataBind();
+                    //clear();
+                    Response.Write("<script>alert('Book details Updated');</script>");
+                }
+
+                catch (Exception ex)
+                {
+                    Response.Write("<script>alert('" + ex.Message + "');</script>");
+                }
+            }
+        }
 
         void getBookByID()
         {
@@ -64,8 +125,25 @@ namespace BookShelf
                         TextBox2.Text = dr.GetValue(1).ToString();
                         DropDownList1.SelectedValue = dr.GetValue(3).ToString().Trim();
                         TextBox5.Text = dr.GetValue(4).ToString();
-                        //ListBox1.Items. = dr.GetValue(2).ToString().Trim();
+
+                        ListBox1.ClearSelection();
+                        string category = dr.GetValue(2).ToString().Trim();
+
+                        for (int j=0; j < ListBox1.Items.Count; j++)
+                        {
+                            if (ListBox1.Items[j].ToString() == category)
+                            {
+                                ListBox1.Items[j].Selected = true;
+                            }
+                        }
+
+                        TextBox3.Text = dr.GetValue(7).ToString();
+                        TextBox7.Text = dr.GetValue(6).ToString();
+                        TextBox4.Text = dr.GetValue(8).ToString();
+                        TextBox6.Text = dr.GetValue(5).ToString();
                     }
+
+                    global_filepath = dr.GetValue(9).ToString();
 
                 }
                     
