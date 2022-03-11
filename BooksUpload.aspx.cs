@@ -108,59 +108,71 @@ namespace BookShelf
 
         void getBookByID()
         {
-            try
+            if (TextBox1.Text.Trim().Equals(""))
             {
-                SqlConnection con = new SqlConnection(strcon);
-                if (con.State == ConnectionState.Closed)
-                {
-                    con.Open();
-                }
+                Response.Write("<script>alert('User ID cannot be blank');</script>");
+            }
 
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Books WHERE Book_Id='"+TextBox1.Text.Trim()+"'", con);
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.HasRows)
+            else
+            {
+                try
                 {
-                    while (dr.Read())
+                    SqlConnection con = new SqlConnection(strcon);
+                    if (con.State == ConnectionState.Closed)
                     {
-                        TextBox2.Text = dr.GetValue(1).ToString();
-                        DropDownList1.SelectedValue = dr.GetValue(3).ToString().Trim();
-                        TextBox5.Text = dr.GetValue(4).ToString();
-
-                        ListBox1.ClearSelection();
-                        string category = dr.GetValue(2).ToString().Trim();
-
-                        for (int j=0; j < ListBox1.Items.Count; j++)
-                        {
-                            if (ListBox1.Items[j].ToString() == category)
-                            {
-                                ListBox1.Items[j].Selected = true;
-                            }
-                        }
-
-                        TextBox3.Text = dr.GetValue(7).ToString();
-                        TextBox7.Text = dr.GetValue(6).ToString();
-                        TextBox4.Text = dr.GetValue(8).ToString();
-                        TextBox6.Text = dr.GetValue(5).ToString();
+                        con.Open();
                     }
 
-                    global_filepath = dr.GetValue(9).ToString();
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM Books WHERE Book_Id='" + TextBox1.Text.Trim() + "'", con);
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    var folderpath = Server.MapPath("~/BooksImg/");
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            TextBox2.Text = dr.GetValue(1).ToString();
+                            DropDownList1.SelectedValue = dr.GetValue(3).ToString().Trim();
+                            TextBox5.Text = dr.GetValue(4).ToString();
+
+                            ListBox1.ClearSelection();
+                            string category = dr.GetValue(2).ToString().Trim();
+
+                            for (int j = 0; j < ListBox1.Items.Count; j++)
+                            {
+                                if (ListBox1.Items[j].ToString() == category)
+                                {
+                                    ListBox1.Items[j].Selected = true;
+                                }
+                            }
+
+                            TextBox3.Text = dr.GetValue(7).ToString();
+                            TextBox7.Text = dr.GetValue(6).ToString();
+                            TextBox4.Text = dr.GetValue(8).ToString();
+                            TextBox6.Text = dr.GetValue(5).ToString();
+                            FileUpload1.SaveAs(folderpath + dr.GetValue(9).ToString());
+                            global_filepath = dr.GetValue(9).ToString();
+                        }
+
+
+                    }
+
+
+
+                    else
+                    {
+                        Response.Write("<script>alert('Invalid Book ID')</script>");
+                    }
+
+
 
                 }
-                    
-                    
-                
-                else
+                catch (Exception ex)
                 {
-                    Response.Write("<script>alert('Invalid Book ID')</script>");
+                    Response.Write("<script>alert('" + ex.Message + "')</script>");
                 }
-
-                
-
             }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + ex.Message + "')</script>");
-            }
+
+            
         }
 
         void userBookData()
@@ -195,8 +207,10 @@ namespace BookShelf
                 //for img file upload
                 string filepath = "~/BooksImg/book%20details.jpg";
                 string filename = Path.GetFileName(FileUpload1.PostedFile.FileName);
-                FileUpload1.SaveAs(Server.MapPath("BooksImg/" + filename));
-                filepath = "~/BooksImg/" + filename;
+                FileUpload1.SaveAs(Server.MapPath(filename));
+                //FileUpload1.SaveAs(Server.MapPath("BooksImg/" + filename));
+                filepath = filename;
+                //filepath = "~/BooksImg/" + filename;
 
                 SqlConnection con = new SqlConnection(strcon);
                 if(con.State == ConnectionState.Closed)
