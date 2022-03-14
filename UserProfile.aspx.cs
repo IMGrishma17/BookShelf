@@ -138,7 +138,7 @@ namespace BookShelf
                 cmd.Parameters.AddWithValue("@full_name", TextBox1.Text.Trim());
                 cmd.Parameters.AddWithValue("@dob", TextBox2.Text.Trim());
                 cmd.Parameters.AddWithValue("@contact_no", TextBox3.Text.Trim());
-                cmd.Parameters.AddWithValue("@email", TextBox4.Text.Trim());
+                cmd.Parameters.AddWithValue("@email", TextBox4.Text.Trim()); 
                 cmd.Parameters.AddWithValue("@full_address", TextBox5.Text.Trim());
                 cmd.Parameters.AddWithValue("@password", password);
                 cmd.Parameters.AddWithValue("@account_status", "pending");

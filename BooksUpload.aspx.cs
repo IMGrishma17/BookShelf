@@ -97,6 +97,8 @@ namespace BookShelf
                     GridView1.DataBind();
                     //clear();
                     Response.Write("<script>alert('Book details Updated');</script>");
+
+                    userBookData();
                 }
 
                 catch (Exception ex)
