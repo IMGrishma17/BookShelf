@@ -127,6 +127,7 @@
                                         <asp:ListItem Text="Crime" Value="Crime" />
                                         <asp:ListItem Text="Drama" Value="Drama" />
                                         <asp:ListItem Text="Poetry" Value="Poetry" />
+                                        <asp:ListItem Text="Class 10" Value="Class 10" />
                                         <asp:ListItem Text="MBBS" Value="MBBS" />
                                         <asp:ListItem Text="Engineering" Value="Engineering" />
                                         <asp:ListItem Text="IT" Value="IT" />

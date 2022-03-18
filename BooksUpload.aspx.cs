@@ -37,7 +37,7 @@ namespace BookShelf
         //delete button click
         protected void Button2_Click(object sender, EventArgs e)
         {
-
+            deleteBook();
         }
 
         //go button click
@@ -47,6 +47,38 @@ namespace BookShelf
         }
 
         //user defined function
+
+        void deleteBook()
+        {
+            if (TextBox1.Text.Trim().Equals(""))
+            {
+                Response.Write("<script>alert('Book ID cannot be blank');</script>");
+            }
+
+            else
+            {
+                try
+                {
+                    SqlConnection con = new SqlConnection(strcon);
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+
+                    SqlCommand cmd = new SqlCommand("DELETE FROM Books WHERE Book_Id='" + TextBox1.Text.Trim() + "'", con);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    Response.Write("<script>alert('Book deleted Permanently');</script>");
+                    //clear();
+                    GridView1.DataBind();
+                }
+
+                catch (Exception ex)
+                {
+                    Response.Write("<script>alert('" + ex.Message + "');</script>");
+                }
+            }
+        }
 
         void updateBook()
         {

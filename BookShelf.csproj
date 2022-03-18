@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminLogin.aspx" />
+    <Content Include="BookInfo.aspx" />
     <Content Include="BooksImg\book details.jpg" />
     <Content Include="BooksManage.aspx" />
     <Content Include="BooksUpload.aspx" />
@@ -1750,6 +1751,13 @@
     </Compile>
     <Compile Include="AdminLogin.aspx.designer.cs">
       <DependentUpon>AdminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookInfo.aspx.cs">
+      <DependentUpon>BookInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookInfo.aspx.designer.cs">
+      <DependentUpon>BookInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="BooksManage.aspx.cs">
       <DependentUpon>BooksManage.aspx</DependentUpon>
