@@ -13,5 +13,16 @@ namespace BookShelf
         {
             
         }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            var bookId = button.CommandArgument;
+            Response.Redirect(string.Format("~/BookInfo.aspx?id={0}", bookId));
+        }
     }
 }

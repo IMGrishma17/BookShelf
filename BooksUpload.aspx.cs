@@ -70,6 +70,7 @@ namespace BookShelf
                     con.Close();
                     Response.Write("<script>alert('Book deleted Permanently');</script>");
                     //clear();
+                    userBookData();
                     GridView1.DataBind();
                 }
 
@@ -278,7 +279,7 @@ namespace BookShelf
 
             catch(Exception ex)
             {
-
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
     }

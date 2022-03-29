@@ -29,7 +29,11 @@
                       
 
                         <div class="row">
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BookShelfDBConnectionString %>" SelectCommand="SELECT * FROM [Books] WHERE Book_Id='100'"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BookShelfDBConnectionString %>" SelectCommand="SELECT * FROM [Books] WHERE [Book_Id]=@Id">
+                                <SelectParameters>
+                                    <asp:Parameter Name="Id" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
                             <div class="col">
                                 <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Book_Id" DataSourceID="SqlDataSource1">
                                     <Columns>
@@ -127,7 +131,7 @@
                             </div>
 
                             <div class="col-md-4">
-                                <asp:Button class="btn btn-lg btn-info" ID="Button1" runat="server" Text="Post" />
+                                <asp:Button class="btn btn-lg btn-info" ID="Button1" runat="server" Text="Post" OnClick="Button1_Click" />
                             </div>
                         </div>
 

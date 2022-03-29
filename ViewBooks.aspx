@@ -51,7 +51,7 @@
                         <div class="row">
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BookShelfDBConnectionString %>" SelectCommand="SELECT * FROM [Books]"></asp:SqlDataSource>
                             <div class="col">
-                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Book_Id" DataSourceID="SqlDataSource1">
+                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Book_Id" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                                     <Columns>
                                         <asp:BoundField DataField="User_Id" HeaderText="Uploaded by User ID" InsertVisible="False" ReadOnly="True" SortExpression="User_Id" />
                                         
@@ -121,7 +121,9 @@
                                                         <div class="col-lg-2">
                                                             <asp:Image class="img-fluid" ID="Image1" runat="server" ImageUrl='<%# Eval("Book_Img_Link") %>' />
                                                         </div>
-
+                                                        <center>
+                                                        <asp:Button ID="Button1" runat="server" cssClass="btn btn-info" Text="View Info" CommandArgument='<%#Eval("Book_Id")%>' OnClick="Button1_Click" />
+                                                        </center>
                                                     </div>
                                                 </div>
                                             </ItemTemplate>
@@ -129,6 +131,7 @@
                                         
                                     </Columns>
                                 </asp:GridView>
+
 
                             </div>
                         </div>
