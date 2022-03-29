@@ -122,7 +122,7 @@
                                                             <asp:Image class="img-fluid" ID="Image1" runat="server" ImageUrl='<%# Eval("Book_Img_Link") %>' />
                                                         </div>
                                                         <center>
-                                                        <asp:Button ID="Button1" runat="server" cssClass="btn btn-info" Text="View Info" CommandArgument='<%#Eval("Book_Id")%>' OnClick="Button1_Click" />
+                                                        <asp:Button ID="Button1" cssClass="btn btn-info" runat="server" Text="View Info" CommandArgument='<%#Eval("Book_Id")%>' OnClick="Button1_Click" />
                                                         </center>
                                                     </div>
                                                 </div>

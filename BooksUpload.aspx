@@ -66,16 +66,16 @@
                                 <label>Book ID</label>
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <asp:TextBox CssClass="form-control mr-1" ID="TextBox1" runat="server" placeholder="ID"></asp:TextBox>
-                                        <asp:LinkButton class="btn btn-primary" ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">GO</asp:LinkButton>                   
+                                        <asp:TextBox CssClass="form-control" ID="TextBox1"  runat="server" placeholder="ID" ReadOnly="True"></asp:TextBox>
+                                        <%--<asp:LinkButton class="btn btn-primary" ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">GO</asp:LinkButton> --%>                  
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-9">
+                            <%--<div class="col-md-9">
                                 <br />
                                 <label style="color: #FF0000; font-style: italic; font-size: smaller">Enter Book ID to search for a book</label>
-                            </div>
+                            </div>--%>
 
 
                         </div>
@@ -216,7 +216,16 @@
                         <div class="row">
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
                             <div class="col">
-                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server"></asp:GridView>
+                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                                    <Columns>
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:LinkButton ID="LinkButton1" CssClass="btn btn-outline-info btn-sm" runat="server" OnClick="btnDetail_Click">Edit Details</asp:LinkButton>
+                                                <%--<asp:Button ID="btnDetail" CssClass="btn btn-primary" Text="Edit Details" runat="server" OnClick="btnDetail_Click" />--%>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
 
                             </div>
                         </div>

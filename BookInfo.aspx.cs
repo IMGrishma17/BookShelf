@@ -45,7 +45,7 @@ namespace BookShelf
 
             //foreach (GridViewRow row in GridView1.Rows)
             //{
-                var Owner_Id = GridView1.Rows[0].Cells[1];
+                var Owner_Id = GridView1.Rows[0].Cells[0];
             //}
 
             //var Owner_Id = GridView1.Rows[i].Cells[3].Text;

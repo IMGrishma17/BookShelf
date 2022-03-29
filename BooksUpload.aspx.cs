@@ -41,10 +41,10 @@ namespace BookShelf
         }
 
         //go button click
-        protected void LinkButton4_Click(object sender, EventArgs e)
-        {
-            getBookByID();
-        }
+        //protected void LinkButton4_Click(object sender, EventArgs e)
+        //{
+        //    getBookByID();
+        //}
 
         //user defined function
 
@@ -143,6 +143,7 @@ namespace BookShelf
 
         void getBookByID()
         {
+
             if (TextBox1.Text.Trim().Equals(""))
             {
                 Response.Write("<script>alert('User ID cannot be blank');</script>");
@@ -281,6 +282,23 @@ namespace BookShelf
             {
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Button button = (Button)sender;
+            //var bookId = button.CommandArgument;
+            //Response.Redirect(string.Format("~/BooksUpload.aspx?id={0}", bookId));
+
+            //getBookByID();
+        }
+
+
+        protected void btnDetail_Click(object sender, EventArgs e)
+        {
+            int rowind = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
+            TextBox1.Text = GridView1.Rows[rowind].Cells[1].Text;
+            getBookByID();
         }
     }
 }
