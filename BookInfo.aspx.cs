@@ -20,6 +20,8 @@ namespace BookShelf
             SqlDataSource1.SelectParameters["Id"].DefaultValue = Request.QueryString["id"];
             //SqlDataSource1.SelectParameters.Add("id", DbType.String, id.ToString());
 
+
+            LoadComment();
         }
 
         //comment post button click
@@ -30,13 +32,49 @@ namespace BookShelf
             {
                 Response.Write("<script>alert('Comment field cannot be blank');</script>");
             }
+
+            //else if (Session["role"]==null)
+            //{
+            //    Response.Write("<script>alert(! Please Log In to Post Comment !);</script>");
+            //}
+
             else
             {
-                PostComment();
+                 PostComment();
+                LoadComment();
             }
 
             
 
+        }
+
+
+
+        void LoadComment()
+        {
+            var Book_Id = Request.QueryString["id"];
+
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("SELECT Commented_User_Id,Comments FROM Comments WHERE Book_Id='" + Book_Id + "';", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                GridView2.DataSource = dt;
+                GridView2.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "')</script>");
+            }
         }
 
         void PostComment()
@@ -45,7 +83,7 @@ namespace BookShelf
 
             //foreach (GridViewRow row in GridView1.Rows)
             //{
-                var Owner_Id = GridView1.Rows[0].Cells[0];
+                var Owner_Id = GridView1.Rows[0].Cells[0].Text.ToString();
             //}
 
             //var Owner_Id = GridView1.Rows[i].Cells[3].Text;
@@ -70,6 +108,37 @@ namespace BookShelf
                 Response.Write("<script>alert('Comment added successfully!')</script>");
 
             }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+            }
+        }
+
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        void DeleteComment()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("DELETE FROM Comments WHERE Book_Id='" + TextBox1.Text.Trim() + "'", con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                Response.Write("<script>alert('Comment deleted Permanently');</script>");
+                //clear();
+                LoadComment();
+               
+            }
+
             catch (Exception ex)
             {
                 Response.Write("<script>alert('" + ex.Message + "');</script>");

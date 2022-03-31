@@ -135,6 +135,72 @@
                             </div>
                         </div>
 
+                        
+
+
+
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <br />
+                                    <h5>Comments Listed by Users: </h5>
+                                </center>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <hr />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            
+                            <div class="col">
+                                <asp:GridView class="table table-striped table-bordered" ID="GridView2" runat="server" AutoGenerateColumns="False">
+                                    <Columns>
+                                        <asp:TemplateField>
+                                            
+                                            <ItemTemplate>
+                                                <div class="container-fluid">
+                                                    <center>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            Username : 
+                                                            <asp:Label ID="Label5" runat="server" Font-Bold="True" Text='<%# Eval("Commented_User_Id") %>'></asp:Label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <asp:Label ID="Label10" runat="server" Font-Bold="False" Font-Italic="True" Text='<%# Eval("Comments") %>'></asp:Label>
+                                                        </div>
+                                                    </div>
+                                                    </center>
+                                                    <div class="row">
+                                                        <div class="col" align="right">
+                                                            <asp:LinkButton ID="LinkButton2" runat="server" OnClick="btnDelete_Click">Delete</asp:LinkButton>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                </div>
+
+
+                                                <%--<asp:LinkButton ID="LinkButton1" CssClass="btn btn-outline-info btn-sm" runat="server" >Delete</asp:LinkButton>--%>
+
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
+
+                            </div>
+                        </div>
+
+
+
+
+
+
                     </div>
                 </div>
 
