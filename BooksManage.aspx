@@ -53,7 +53,7 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <asp:TextBox CssClass="form-control mr-1" ID="TextBox1" runat="server" placeholder="ID"></asp:TextBox>
-                                        <asp:LinkButton class="btn btn-primary" ID="LinkButton4" runat="server" >GO</asp:LinkButton>                   
+                                        <asp:LinkButton class="btn btn-primary" ID="LinkButton4" runat="server" OnClick="LinkButton4_Click" >GO</asp:LinkButton>                   
                                     </div>
                                 </div>
                             </div>
@@ -62,8 +62,7 @@
                                 <label>Book Name</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Book Name" ></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" runat="server" ErrorMessage="* Enter the book name *" ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
-                                </div>
+                                    </div>
                             </div>
 
 
@@ -153,12 +152,12 @@
 
                         <div class="row">
                             
-                            <div class="col-md-4">
-                                <asp:Button class="btn btn-lg btn-block btn-warning" ID="Button3" runat="server" Text="Update"  />
-                            </div>
+<%--                            <div class="col-md-4">
+                                <asp:Button class="btn btn-lg btn-block btn-warning" ID="Button3" runat="server" Text="Update" OnClick="Button3_Click"  />
+                            </div>--%>
 
-                            <div class="col-md-4">
-                                <asp:Button class="btn btn-lg btn-block btn-danger" ID="Button2" runat="server" Text="Delete"  />
+                            <div class="col-md-6">
+                                <asp:Button class="btn btn-lg btn-block btn-danger" ID="Button2" runat="server" Text="Delete Book Permanently" OnClick="Button2_Click"  />
                             </div>
 
                         </div>
