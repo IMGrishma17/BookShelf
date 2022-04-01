@@ -14,8 +14,37 @@
     
     <br />
     
+    
     <div class="container">
         <div class="row">
+
+            <div class="row">
+                <div class="col-8">
+                    <asp:DropDownList ID="DropDownList1" Class="form-control" runat="server">
+                    <asp:ListItem Value="0">- Category -</asp:ListItem>
+                    <asp:ListItem Text="Fantasy" Value="Fantasy" />
+                    <asp:ListItem Text="Fiction" Value="Fiction" />
+                    <asp:ListItem Text="Science-Fiction" Value="Si-Fiction" />
+                    <asp:ListItem Text="Romance" Value="Romance" />
+                    <asp:ListItem Text="Crime" Value="Crime" />
+                    <asp:ListItem Text="Drama" Value="Drama" />
+                    <asp:ListItem Text="Poetry" Value="Poetry" />
+                    <asp:ListItem Text="Class 10" Value="Class 10" />
+                    <asp:ListItem Text="MBBS" Value="MBBS" />
+                    <asp:ListItem Text="Engineering" Value="Engineering" />
+                    <asp:ListItem Text="IT" Value="IT" />
+                    <asp:ListItem Text="Law" Value="Law" />
+                </asp:DropDownList>
+                </div>
+                
+                <div class="col-2">
+                    <asp:LinkButton class="btn btn-primary" ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">GO</asp:LinkButton>
+                </div>
+
+            </div>
+
+            
+
 
             <div class="col-sm-12">
                 

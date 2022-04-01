@@ -40,8 +40,16 @@ namespace BookShelf
 
             else
             {
-                 PostComment();
-                LoadComment();
+                if (Session["role"] == "user")
+                {
+                    PostComment();
+                    LoadComment();
+                }
+                else
+                {
+                    Response.Write("<script>alert( 'Please Log In as User to Post Comment !');</script>");
+                }
+                
             }
 
             
