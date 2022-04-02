@@ -15,7 +15,7 @@ namespace BookShelf
         string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            ViewBooksLoad();
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -39,25 +39,36 @@ namespace BookShelf
             var category = DropDownList1.SelectedItem.Value;
             try
             {
-                SqlConnection con = new SqlConnection(strcon);
-                if (con.State == ConnectionState.Closed)
-                {
-                    con.Open();
-                }
 
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Books WHERE Category='" + category + "';", con);
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                if (dr.HasRows)
+                if (DropDownList1.SelectedIndex == 0)
                 {
-                    GridView1.DataSource = dr;
-                    GridView1.DataBind();
+                    Response.Write("<script>alert('Please Select a Category')</script>");
                 }
 
                 else
                 {
-                    Response.Write("<script>alert('No book found for that category')</script>");
+                    SqlConnection con = new SqlConnection(strcon);
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM Books WHERE Category='" + category + "';", con);
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    if (dr.HasRows)
+                    {
+                        GridView1.DataSource = dr;
+                        GridView1.DataBind();
+                    }
+
+                    else
+                    {
+                        Response.Write("<script>alert('No book found for that category')</script>");
+                    }
                 }
+
+                
 
                     
 
@@ -67,5 +78,31 @@ namespace BookShelf
                 Response.Write("<script>alert('" + ex.Message + "')</script>");
             }
         }
+
+        void ViewBooksLoad()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Books", con);
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                
+                    GridView1.DataSource = dr;
+                    GridView1.DataBind();
+               
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "')</script>");
+            }
+        }
+
     }
 }

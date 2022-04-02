@@ -19,7 +19,7 @@
         <div class="row">
 
             <div class="row">
-                <div class="col-8">
+                <div class="col-10">
                     <asp:DropDownList ID="DropDownList1" Class="form-control" runat="server">
                     <asp:ListItem Value="0">- Category -</asp:ListItem>
                     <asp:ListItem Text="Fantasy" Value="Fantasy" />
@@ -78,9 +78,9 @@
                         </div>
 
                         <div class="row">
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BookShelfDBConnectionString %>" SelectCommand="SELECT * FROM [Books]"></asp:SqlDataSource>
+                            <%--<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BookShelfDBConnectionString %>" SelectCommand="SELECT * FROM [Books]"></asp:SqlDataSource>--%>
                             <div class="col">
-                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Book_Id" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Book_Id"  OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                                     <Columns>
                                         <asp:BoundField DataField="User_Id" HeaderText="Uploaded by User ID" InsertVisible="False" ReadOnly="True" SortExpression="User_Id" />
                                         
