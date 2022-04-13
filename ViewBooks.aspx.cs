@@ -15,7 +15,7 @@ namespace BookShelf
         string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //ViewBooksLoad();
+            ViewBooksLoad();
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -31,6 +31,7 @@ namespace BookShelf
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
+            //Button button = (Button)sender;
             loadFromCategory();
         }
 

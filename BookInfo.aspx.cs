@@ -70,7 +70,7 @@ namespace BookShelf
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT Commented_User_Id,Comments FROM Comments WHERE Book_Id='" + Book_Id + "';", con);
+                SqlCommand cmd = new SqlCommand("SELECT Commented_User_Id,Comments,C_Id FROM Comments WHERE Book_Id='" + Book_Id + "';", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -125,23 +125,39 @@ namespace BookShelf
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
+            Button button = (Button)sender;
+            var commentId = button.CommandArgument;
+            DeleteComment(commentId);
+
+            //Response.Redirect(string.Format("~/BookInfo.aspx?Id={0}", commentId));
             
         }
 
-        void DeleteComment()
+        void DeleteComment(string CommentID)
         {
+
             try
             {
-                SqlConnection con = new SqlConnection(strcon);
-                if (con.State == ConnectionState.Closed)
-                {
-                    con.Open();
-                }
 
-                SqlCommand cmd = new SqlCommand("DELETE FROM Comments WHERE Book_Id='" + TextBox1.Text.Trim() + "'", con);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                Response.Write("<script>alert('Comment deleted Permanently');</script>");
+                //SqlCommand cmd = new SqlCommand("SELECT * FROM Comments WHERE C_Id='" + CommentID + "'", con);
+                //|| Commented_User_Id = '"+ Session["username"] +"'
+                if (Session["role"] == "admin" )
+                {
+                    SqlConnection con = new SqlConnection(strcon);
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+                    SqlCommand cmd = new SqlCommand("DELETE FROM Comments WHERE C_Id='" + CommentID + "'", con);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    Response.Write("<script>alert('Comment deleted Permanently');</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('Not Authorized to delete comment');</script>");
+                }
+                
                 //clear();
                 LoadComment();
                
