@@ -35,7 +35,8 @@ namespace BookShelf
         //delete button click
         protected void Button2_Click(object sender, EventArgs e)
         {
-
+            deleteBook();
+            clear();
         }
 
 
@@ -141,6 +142,16 @@ namespace BookShelf
             }
         }
 
-
+        void clear()
+        {
+            TextBox3.Text = "";
+            TextBox7.Text = "";
+            TextBox4.Text = "";
+            TextBox6.Text = "";
+            TextBox2.Text = "";
+            TextBox5.Text = "";
+            ListBox1.Items.Clear();
+            TextBox1.Text = "";
+        }
     }
 }

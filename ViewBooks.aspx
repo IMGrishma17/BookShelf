@@ -82,7 +82,7 @@
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BookShelfDBConnectionString %>" SelectCommand="SELECT * FROM [Books]"></asp:SqlDataSource>
                             <div class="col">
                                 <%--DataSourceID="SqlDataSource1"--%>
-                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Book_Id"  OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Book_Id" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                                     <Columns>
                                         <asp:BoundField DataField="User_Id" HeaderText="Uploaded by User ID" InsertVisible="False" ReadOnly="True" SortExpression="User_Id" />
                                         

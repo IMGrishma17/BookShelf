@@ -114,6 +114,7 @@ namespace BookShelf
                 cmd.ExecuteNonQuery();
                 con.Close();
                 Response.Write("<script>alert('Comment added successfully!')</script>");
+                TextBox1.Text = "";
 
             }
             catch (Exception ex)

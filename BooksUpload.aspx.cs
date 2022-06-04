@@ -26,6 +26,7 @@ namespace BookShelf
         protected void Button1_Click(object sender, EventArgs e)
         {
             addNewBook();
+            clear();
         }
 
         //update button click
@@ -38,6 +39,7 @@ namespace BookShelf
         protected void Button2_Click(object sender, EventArgs e)
         {
             deleteBook();
+            clear();
         }
 
         //go button click
@@ -189,9 +191,7 @@ namespace BookShelf
                             global_filepath = dr.GetValue(9).ToString();
                         }
 
-
                     }
-
 
 
                     else
@@ -199,16 +199,25 @@ namespace BookShelf
                         Response.Write("<script>alert('Invalid Book ID')</script>");
                     }
 
-
-
                 }
                 catch (Exception ex)
                 {
                     Response.Write("<script>alert('" + ex.Message + "')</script>");
                 }
             }
+ 
+        }
 
-            
+        void clear()
+        {
+            TextBox3.Text = "";
+            TextBox7.Text = "";
+            TextBox4.Text = "";
+            TextBox6.Text = "";
+            TextBox2.Text = "";
+            TextBox5.Text = "";
+            ListBox1.Items.Clear();
+            TextBox1.Text = "";
         }
 
         void userBookData()
